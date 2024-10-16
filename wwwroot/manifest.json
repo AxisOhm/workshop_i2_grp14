@@ -1,8 +1,11 @@
 ﻿{
   "manifest_version": 3,
-  "name": "workshop_i1_grp14 Extension",
+  "name": "Sanity Regex",
   "description": "My browser extension built with Blazor WebAssembly",
   "version": "0.1",
+  "icons": {
+    "48": "Assets/sanity_icon.png"
+  },
   "background": {
     "service_worker": "content/BackgroundWorker.js",
     "type": "module"
