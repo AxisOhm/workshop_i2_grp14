@@ -9,7 +9,7 @@ namespace workshop_i1_grp14.Backend
         public string Replacement { get; set; }
 
 
-        // TODO: A remplacer avec une vrai methode pour fetch les éléments de la BDD.
+        // TODO: A remplacer avec une vrai methode pour fetch les \u00E9l\u00E9ments de la BDD.
         public List<WordReplacement> GetWordReplacements()
         {
             List<WordReplacement> list = new List<WordReplacement>();
