@@ -1,9 +1,16 @@
-./Build/
-./Release/
-./.vs/
-./.git/
-./.github/
-./bin/Build/
-./bin/Release/
-./obj/Build/
-./obj/Release/
+# Ignorer les dossiers de build
+/Build/
+/Release/
+/bin/Build/
+/bin/Release/
+/obj/Build/
+/obj/Release/
+
+# Ignorer les fichiers et dossiers spécifiques à Visual Studio
+.vs/
+
+# Ignorer le dossier .git (important : généralement inutile car Git l'ignore automatiquement)
+/.git/
+
+# Ignorer le dossier GitHub (actions, workflows, etc.)
+.github/
