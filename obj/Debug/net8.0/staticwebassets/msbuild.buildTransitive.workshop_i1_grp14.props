@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\workshop_i1_grp14.props" />
-</Project>
