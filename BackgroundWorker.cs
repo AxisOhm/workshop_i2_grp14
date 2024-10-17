@@ -1,4 +1,5 @@
 ﻿using Blazor.BrowserExtension;
+using System;
 using System.Threading.Tasks;
 
 namespace workshop_i1_grp14
@@ -13,6 +14,7 @@ namespace workshop_i1_grp14
 
         async Task OnInstalled()
         {
+            Console.WriteLine("Hello from BgWrkr");
             var indexPageUrl = WebExtensions.Runtime.GetURL("index.html");
             await WebExtensions.Tabs.Create(new()
             {

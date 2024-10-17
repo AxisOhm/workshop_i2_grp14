@@ -1,6 +1,6 @@
-﻿{
+{
   "manifest_version": 3,
-  "name": "workshop_i1_grp14 Extension",
+  "name": "Test",
   "description": "My browser extension built with Blazor WebAssembly",
   "version": "0.1",
   "background": {
