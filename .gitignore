@@ -1,0 +1,9 @@
+./Build/
+./Release/
+./.vs/
+./.git/
+./.github/
+./bin/Build/
+./bin/Release/
+./obj/Build/
+./obj/Release/
