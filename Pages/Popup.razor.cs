@@ -5,7 +5,7 @@ namespace workshop_i1_grp14.Pages
     public partial class Popup : ComponentBase
     {
         // Etat par défaut pour "Sanity"
-        private bool isSanity = true;
+        private bool isSanity = false;
 
         private int? filteredValue = null; // Par défaut null, indiquant qu'il n'y a rien
 
