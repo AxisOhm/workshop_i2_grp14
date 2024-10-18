@@ -1,0 +1,12 @@
+/Build/
+/Release/
+/bin/Build/
+/bin/Release/
+/obj/Build/
+/obj/Release/
+
+.vs/
+
+/.git/
+
+.github/

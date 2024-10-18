@@ -1,4 +1,193 @@
 ﻿@page "/popup.html"
-@inherits BasePage
 
-<h1>My popup page</h1>
+<!-- Styles pour la popup -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #2e2e2e; /* Arrière-plan général foncé */
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    .popup-page {
+        width: 220px;
+        padding: 10px;
+        background-color: #1c1c1c; /* Fond de la popup */
+        border-radius: 10px;
+    }
+
+    .title-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    .title-text {
+        font-size: 16px;
+        margin-left: 10px;
+    }
+
+    .sanity {
+        color: #4CAF50; /* Vert pour Sanity */
+    }
+
+    .insanity {
+        color: #ff4d4d; /* Rouge pour InSanity */
+    }
+
+     .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+        margin-bottom: 20px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ff4d4d; /* Rouge par défaut */
+        transition: 0.4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: #4CAF50; /* Vert pour Sanity */
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    /* Style du cercle */
+    .circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 4px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+    }
+
+    /* Si la valeur est null ou 0, le cercle devient rouge */
+    .circle-empty {
+        border-color: #ff4d4d; /* Rouge */
+    }
+
+    /* Si la valeur est > 0, le cercle devient vert */
+    .circle-filled {
+        border-color: #4CAF50; /* Vert */
+    }
+
+    .circle .number {
+        font-size: 24px;
+        color: white;
+    }
+
+    .activities-section {
+        background-color: #333;
+        padding: 10px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .activities-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+        .activities-header span {
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+
+    .activities-list {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        color: #c0c0c0;
+    }
+
+        .activities-list span {
+            font-weight: bold;
+            color: white;
+        }
+
+</style>
+
+
+<div class="popup-page">
+    <!-- Affichage de l'image et du texte en fonction de l'état -->
+    <div class="title-container">
+        @if (isSanity)
+        {
+            <!-- Affichage de l'image Sanity (vert) -->
+            <img src="Assets/sanity_icon.png" alt="Sanity Icon" width="20" height="20" />
+            <span class="title-text sanity">Sanity</span>
+        }
+        else
+        {
+            <!-- Affichage de l'image InSanity (rouge) -->
+            <img src="Assets/insanity_icon.png" alt="InSanity Icon" width="20" height="20" />
+            <span class="title-text insanity">InSanity</span>
+        }
+    </div>
+
+    <!-- Toggle switch -->
+    <div class="switch">
+        <input type="checkbox" id="toggle" @onchange="ToggleSanity">
+        <label for="toggle" class="slider"></label>
+    </div>
+
+    <div class="activities-section">
+        <div class="activities-header">
+            <span>Activités observées</span>
+        </div>
+
+        <div class="activity-content">
+            <!-- Le cercle change de couleur selon la valeur filtrée -->
+            <div class="circle @(filteredValue > 0 ? "circle-filled" : "circle-empty")">
+                @if (filteredValue > 0)
+                {
+                    <span class="number">@filteredValue</span> <!-- Affiche la valeur filtrée -->
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Dropdown -->
+    <div class="dropdown-container">
+        <select>
+            <option>>Noms d'oiseaux</option>
+            <option>Astérisks</option>
+        </select>
+    </div>
+</div>
